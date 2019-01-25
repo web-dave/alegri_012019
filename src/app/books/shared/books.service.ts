@@ -6,12 +6,16 @@ import { IBook } from "./custom-types";
   providedIn: "root"
 })
 export class BooksService {
-  restRoot = "http://localhost:4730/books";
+  restRoot = "http://localhost:4730/books/";
 
   constructor(private http: HttpClient) {}
 
   getBooks() {
     const url = this.restRoot;
     return this.http.get<IBook[]>(url);
+  }
+  getBook(isbn) {
+    const url = this.restRoot + isbn;
+    return this.http.get<IBook>(url);
   }
 }
