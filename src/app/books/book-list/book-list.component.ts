@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BooksService } from "../shared/books.service";
 import { IBook } from "../shared/custom-types";
 import { Router, ActivatedRoute } from "@angular/router";
+import { map } from "rxjs/operators";
 
 @Component({
   selector: "app-book-list",
@@ -17,7 +18,21 @@ export class BookListComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.service.getBooks().subscribe(b => (this.books = b));
+    this.service
+      .getBooks()
+      .pipe(
+        map(a => {
+          console.log(a);
+          return a.body;
+        })
+      )
+      .subscribe(b => {
+        // console.log(b);
+        this.books = b;
+      });
+  }
+  deleteBook(book: IBook) {
+    this.service.deleteBook(book.isbn).subscribe(res => console.table(res));
   }
 
   selectBook(book: IBook) {

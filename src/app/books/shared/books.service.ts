@@ -11,9 +11,9 @@ export class BooksService {
 
   constructor(private http: HttpClient) {}
 
-  getBooks(): Observable<IBook[]> {
+  getBooks(): Observable<any> {
     const url = this.restRoot;
-    return this.http.get<IBook[]>(url);
+    return this.http.get<any>(url, { observe: "response" });
   }
   getBook(isbn: string): Observable<IBook> {
     const url = this.restRoot + isbn;
@@ -27,5 +27,10 @@ export class BooksService {
   createBook(book): Observable<IBook> {
     const url = `${this.restRoot}`;
     return this.http.post<IBook>(url, book);
+  }
+
+  deleteBook(isbn: string) {
+    const url = `${this.restRoot}${isbn}`;
+    return this.http.delete<any>(url, { observe: "response" });
   }
 }

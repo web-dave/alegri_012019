@@ -9,11 +9,15 @@ import { IBook } from "../shared/custom-types";
 export class BookPreviewComponent implements OnInit {
   @Input() book: IBook;
   @Output() bookselected = new EventEmitter<IBook>();
+  @Output() bookdelete = new EventEmitter<IBook>();
 
   constructor() {}
 
   selectThisBook() {
     this.bookselected.emit(this.book);
+  }
+  deleteThisBook() {
+    this.bookdelete.emit(this.book);
   }
 
   ngOnInit() {}

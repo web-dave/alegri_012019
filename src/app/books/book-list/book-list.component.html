@@ -7,5 +7,6 @@
     *ngFor="let book of books"
     [book]="book"
     (bookselected)="selectBook($event)"
+    (bookdelete)="deleteBook($event)"
   ></app-book-preview>
 </div>
