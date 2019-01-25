@@ -8,6 +8,7 @@
     <p>{{ book.publisher.name }} ({{ book.publisher.url }})</p>
   </div>
   <div class="panel-footer">{{ book.author }}</div>
+  <a [routerLink]="['edit']" class="btn btn-danger"> edit </a>
 </div>
 
 <a class="btn btn-primary" [routerLink]="['..']">Back</a>
