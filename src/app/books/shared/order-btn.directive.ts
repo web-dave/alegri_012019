@@ -5,6 +5,7 @@ import {
   OnChanges,
   ElementRef
 } from "@angular/core";
+import { IBook } from "./custom-types";
 
 @Directive({
   selector: "[orderBtn]"
@@ -12,10 +13,10 @@ import {
 export class OrderBtnDirective implements OnChanges {
   orderBtnElement: HTMLButtonElement = document.createElement("button");
 
-  @Input() orderBtn;
+  @Input() orderBtn: IBook;
 
   ngOnChanges() {
-    this.orderBtnElement.innerText = this.orderBtn;
+    this.orderBtnElement.innerText = "Kauf mich!";
   }
 
   @HostListener("mouseenter") onMouseEnter() {
