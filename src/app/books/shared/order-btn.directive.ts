@@ -8,12 +8,12 @@ import {
 import { IBook } from "./custom-types";
 
 @Directive({
-  selector: "[orderBtn]"
+  selector: "[appOrderBtn]"
 })
 export class OrderBtnDirective implements OnChanges {
   orderBtnElement: HTMLButtonElement = document.createElement("button");
 
-  @Input() orderBtn: IBook;
+  @Input() appOrderBtn: IBook;
 
   ngOnChanges() {
     this.orderBtnElement.innerText = "Kauf mich!";
@@ -30,7 +30,7 @@ export class OrderBtnDirective implements OnChanges {
   constructor(private elementRef: ElementRef) {
     elementRef.nativeElement.appendChild(this.orderBtnElement);
     this.orderBtnElement.onclick = () => {
-      console.log("this.orderBtn:", this.orderBtn);
+      console.log("this.orderBtn:", this.appOrderBtn);
     };
   }
 }
