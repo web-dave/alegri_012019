@@ -1,7 +1,7 @@
 <!-- <ul>
   <li *ngFor="let book of books">{{ book.title }}</li>
 </ul> -->
-
+<a [routerLink]="['new']" class="btn btn-primary"> NEW </a>
 <div *ngIf="books">
   <app-book-preview
     *ngFor="let book of books"
