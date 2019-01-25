@@ -1,0 +1,11 @@
+<!-- <ul>
+  <li *ngFor="let book of books">{{ book.title }}</li>
+</ul> -->
+
+<div *ngIf="books">
+  <app-book-preview
+    *ngFor="let book of books"
+    [book]="book"
+    (bookselected)="selectBook($event)"
+  ></app-book-preview>
+</div>
