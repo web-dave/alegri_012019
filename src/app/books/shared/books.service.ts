@@ -14,7 +14,7 @@ export class BooksService {
     const url = this.restRoot;
     return this.http.get<IBook[]>(url);
   }
-  getBook(isbn) {
+  getBook(isbn: string) {
     const url = this.restRoot + isbn;
     return this.http.get<IBook>(url);
   }
