@@ -1,6 +1,6 @@
 <div class="panel panel-default" *ngIf="book">
   <div class="panel-heading">{{ book.title }} ({{ book.isbn }})</div>
-  <div class="panel-body">
+  <div class="panel-body" orderBtn="Buy me!!">
     <p>
       {{ book.abstract }}
       <span class="badge">{{ book.numPages | pages: "Seitenzahl" }}</span>
@@ -11,5 +11,3 @@
 </div>
 
 <a class="btn btn-primary" [routerLink]="['..']">Back</a>
-
-<!-- <pre>{{ book | json }}</pre> -->
