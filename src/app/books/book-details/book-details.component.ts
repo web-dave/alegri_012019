@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { BooksService } from "../shared/books.service";
 import { Router, ActivatedRoute } from "@angular/router";
 import { IBook } from "../shared/custom-types";
+import { PagesPipe } from "../shared/pages.pipe";
 
 @Component({
   selector: "app-book-details",
@@ -20,6 +21,7 @@ export class BookDetailsComponent implements OnInit {
     this.route.params.subscribe((params: { isbn: string }) => {
       this.booksService.getBook(params.isbn).subscribe(b => {
         console.log("!!", b);
+        console.log(new PagesPipe().transform(b.numPages, "S."));
         this.book = b;
       });
     });

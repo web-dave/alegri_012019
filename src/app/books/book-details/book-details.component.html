@@ -3,7 +3,7 @@
   <div class="panel-body">
     <p>
       {{ book.abstract }}
-      <span class="badge">Seitenzahl: {{ book.numPages }}</span>
+      <span class="badge">{{ book.numPages | pages: "Seitenzahl" }}</span>
     </p>
     <p>{{ book.publisher.name }} ({{ book.publisher.url }})</p>
   </div>
@@ -11,3 +11,5 @@
 </div>
 
 <a class="btn btn-primary" [routerLink]="['..']">Back</a>
+
+<!-- <pre>{{ book | json }}</pre> -->
