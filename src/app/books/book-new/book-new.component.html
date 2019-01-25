@@ -21,4 +21,5 @@
   <div [hidden]="!form.get('isbn').hasError('isbn')">Not a valid ISBN</div>
 
   <button type="submit" [disabled]="form.invalid">Save</button>
+  <a class="btn btn-danger" [routerLink]="['..']">X</a>
 </form>
