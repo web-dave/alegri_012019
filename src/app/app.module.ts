@@ -6,11 +6,12 @@ import { AppComponent } from "./app.component";
 import { MyNavComponent } from "./my-nav/my-nav.component";
 import { AboutModule } from "./about/about.module";
 import { HttpClientModule } from "@angular/common/http";
+import { PreloadDelayed } from "./shared/preload-delayed";
 
 @NgModule({
   declarations: [AppComponent, MyNavComponent],
   imports: [BrowserModule, AppRoutingModule, AboutModule, HttpClientModule],
-  providers: [],
+  providers: [PreloadDelayed],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
