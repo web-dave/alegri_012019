@@ -13,7 +13,7 @@ export class BooksService {
 
   getBooks(): Observable<any> {
     const url = this.restRoot;
-    return this.http.get<any>(url, { observe: "response" });
+    return this.http.get<any>(url); // , { observe: "response" }
   }
   getBook(isbn: string): Observable<IBook> {
     const url = this.restRoot + isbn;

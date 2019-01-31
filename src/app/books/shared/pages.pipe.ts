@@ -4,7 +4,10 @@ import { Pipe, PipeTransform } from "@angular/core";
   name: "pages"
 })
 export class PagesPipe implements PipeTransform {
-  transform(value: any, args?: any): any {
+  transform(value: any, args: any = 'baz'): any {
     return `${args}: ${value}`;
   }
 }
+
+
+// foo: bar

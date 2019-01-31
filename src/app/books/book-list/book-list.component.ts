@@ -20,12 +20,12 @@ export class BookListComponent implements OnInit {
   ngOnInit() {
     this.service
       .getBooks()
-      .pipe(
-        map(a => {
-          console.log(a);
-          return a.body;
-        })
-      )
+      // .pipe(
+      //   map(a => {
+      //     console.log(a);
+      //     return a.body;
+      //   })
+      // )
       .subscribe(b => {
         // console.log(b);
         this.books = b;
